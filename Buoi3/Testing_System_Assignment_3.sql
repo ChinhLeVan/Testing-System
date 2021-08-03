@@ -17,8 +17,17 @@ WHERE department_name = 'Sales';
 -- Cách 1
 SELECT *
 FROM testing_system.account
-ORDER BY length(full_name) DESC LIMIT 1;
--- Cách 2:
+ORDER BY length(full_name) DESC LIMIT 1;-- giới hạn in ra 1 tên
+
+-- giới hạn in ra 1 tên cách 2
+SELECT *, length( full_name )
+FROM testing_system.account
+WHERE length( full_name ) = ( SELECT max( length( full_name ) ) FROM testing_system.account ) LIMIT 1;
+
+-- Không giới hạn 
+SELECT *, length( full_name )
+FROM testing_system.account
+WHERE length( full_name ) = ( SELECT max( length( full_name ) ) FROM testing_system.account );
 
 -- Question 5: Lấy ra acc có full name dài nhất và thuộc phòng ban có Id bằng 3
 SELECT *
@@ -48,7 +57,7 @@ FROM testing_system.group
 ORDER BY create_date ASC LIMIT 5;
 
 -- Question 10: Đếm số nhân viên thuộc department có id = 2
-SELECT department_id,COUNT(department_id)
+SELECT department_id, COUNT(department_id)
 FROM testing_system.account
 GROUP BY department_id
 HAVING department_id = 2;
