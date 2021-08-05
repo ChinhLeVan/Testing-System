@@ -4,16 +4,16 @@ USE extra_assignments_2;
 
 DROP TABLE IF EXISTS Trainee;
 CREATE TABLE Trainee(
-	id					INT,
+	id					INT 	UNSIGNED 	AUTO_INCREMENT	PRIMARY KEY,
     full_name			VARCHAR(50),
     birth_date			DATE,
-    gender				ENUM("male", "female", "unknown"),
+    gender				ENUM ("male", "female", "unknown"),
     et_iq				TINYINT,
     et_gmath			TINYINT,
     et_english			TINYINT,
     training_class		VARCHAR(50),
-    evaluation_notes	VARCHAR(50),
-    vti_account			VARCHAR(50) 	NOT NULL	UNIQUE
+    evaluation_notes	VARCHAR(50)
+   -- vti_account			VARCHAR(50) 	NOT NULL	UNIQUE
 );
 
 DROP TABLE IF EXISTS Exercise2;
