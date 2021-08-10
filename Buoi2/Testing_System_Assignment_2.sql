@@ -7,7 +7,7 @@ USE testing_system;
 DROP TABLE IF EXISTS department;
 CREATE TABLE department (
     department_id 			TINYINT UNSIGNED 		PRIMARY KEY		AUTO_INCREMENT,
-    department_name 		NVARCHAR(50) 			NOT NULL		UNIQUE KEY
+    department_name 		NVARCHAR(50) 			NOT NULL		UNIQUE KEY		
 );
 
 -- ---------------------------------------------------------------------
@@ -26,7 +26,7 @@ CREATE TABLE `account` (
 	email 					NVARCHAR(50) 			UNIQUE KEY		CHECK (length(email) > 6),
 	use_name 				NVARCHAR(50) 			UNIQUE KEY		CHECK (length(use_name) > 5),
 	full_name 				NVARCHAR(50)							CHECK (length(full_name) > 10),
-	department_id 			TINYINT UNSIGNED		NOT NULL,
+	department_id 			TINYINT UNSIGNED		NOT NULL		DEFAULT '1',
 	position_id 			TINYINT UNSIGNED		NOT NULL,
 	create_date 			DATETIME 				DEFAULT NOW(),
     FOREIGN KEY (department_id) REFERENCES department(department_id),

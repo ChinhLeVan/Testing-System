@@ -5,7 +5,7 @@ USE testing_system;
 
 /*============ Add data for table department==============*/
 INSERT INTO department(department_name)
-VALUES 					('Marketing'),
+VALUES 					('No person'),
 						('Sales'),
                         ('Sercurity'),
                         ('Nhân sự'),
@@ -14,7 +14,7 @@ VALUES 					('Marketing'),
 						('Phó giám đốc'),
                         ('Giám đốc'),
                         ('Thư kí'),
-                        ('No person'),
+                        ('Marketing'),
                         ('Bán hàng');
                         
 /*============ Add data for table position=================*/
